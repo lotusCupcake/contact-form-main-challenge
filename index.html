@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/styles.css">
+  <title>Frontend Mentor | Contact form</title>
+</head>
+
+<body>
+
+  <div class="formContainer">
+    <h1>Contact Us</h1>
+    <form id="contactForm" aria-label="Contact form">
+
+      <div class="formItem">
+        <div class="firstName">
+          <label for="firstName">First Name <span class="requiredInput">*</span></label>
+          <input type="text" id="firstName" name="firstName">
+          <p class="error">This field is required</p>
+        </div>
+
+        <div class="lastName">
+          <label for="lastName">Last Name <span class="requiredInput">*</span></label>
+          <input type="text" id="lastName" name="lastName">
+          <p class="error">This field is required</p>
+        </div>
+      </div>
+      <div class="formItem">
+        <label for="email">Email Address <span class="requiredInput">*</span></label>
+        <input type="email" id="email" name="email">
+        <p class="error">Please enter a valid email address</p>
+      </div>
+      <div class="formItem">
+        <label for="queryType">Query Type <span class="requiredInput">*</span></label>
+        <div class="radioInputs" id="radioInputs">
+          <div class="radioOption">
+            <input type="radio" id="generalInquiry" name="queryType">
+            <label for="generalInquiry">General Inquiry</label>
+          </div>
+          <div class="radioOption">
+            <input type="radio" id="supportRequest" name="queryType">
+            <label for="supportRequest">Support Request</label>
+          </div>
+        </div>
+        <p class="error">Please select a query type</p>
+      </div>
+      <div class="formItem">
+        <label for="message">Message <span class="requiredInput">*</span></label>
+        <textarea id="message" name="message" row="5"></textarea>
+        <p class="error">This field is required</p>
+      </div>
+      <div class="formItem">
+        <div>
+          <input type="checkbox" id="consent" name="consent">
+          <label for="consent">I consent to being contacted by the team <span class="requiredInput">*</span></label>
+        </div>
+        <p class="error" id="consentError">To submit this form, please consent to being contacted</p>
+      </div>
+      <button type="submit" id="btnSubmit" class="btnSubmit">Submit</button>
+    </form>
+  </div>
+
+  <div id="successMessage" class="successMessage">
+    <div class="messageHeader">
+      <img src="./assets/images/icon-success-check.svg" alt="">
+      <p>Message Sent!</p>
+    </div>
+    <p>Thanks for completing the form. We'll be in touch soon.</p>
+  </div>
+
+  <script src="./assets/script.js"></script>
+
+</body>
+
+</html>

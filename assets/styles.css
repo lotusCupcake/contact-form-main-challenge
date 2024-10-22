@@ -1,0 +1,236 @@
+ * {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+ }
+
+ :root {
+     --medium-green: hsl(148, 38%, 91%);
+     --green: hsl(169, 82%, 27%);
+     --red: hsl(0, 66%, 54%);
+     --medium-grey: hsl(186, 15%, 59%);
+     --grey: hsl(187, 24%, 22%);
+     --white: hsl(0, 0%, 100%);
+     --font-body: 'Karla', sans-serif;
+ }
+
+ body {
+     font-family: var(--font-body);
+     background-color: var(--medium-green);
+     display: grid;
+     place-content: center;
+     min-height: 100vh;
+ }
+
+
+ label {
+     color: var(--grey);
+ }
+
+ input[type="text"],
+ input[type="email"],
+ textarea {
+     width: 100%;
+     padding: 10px;
+     border: 1px solid var(--medium-grey);
+     border-radius: 5px;
+     margin-top: 10px;
+     font-family: var(--font-body);
+ }
+
+ textarea {
+     height: 100px;
+ }
+
+ input:focus,
+ textarea:focus {
+     outline: 1px solid var(--green);
+     border: 1px solid var(--green);
+ }
+
+ input[type="text"].formError,
+ input[type="email"].formError {
+     border: 1px solid var(--red);
+ }
+
+ .requiredInput {
+     color: var(--green);
+ }
+
+ .error {
+     display: none;
+     color: var(--red);
+     margin-top: 10px;
+ }
+
+ .error.formError {
+     display: block;
+ }
+
+
+ .formContainer {
+     background-color: var(--white);
+     padding: 40px;
+     margin: 10px;
+     border-radius: 10px;
+ }
+
+ .formContainer h1 {
+     color: var(--grey);
+     margin-bottom: 15px;
+ }
+
+ .formContainer .formItem {
+     margin-bottom: 25px;
+ }
+
+ .formContainer .formItem:nth-child(1) {
+     display: flex;
+     gap: 10px;
+ }
+
+
+ .formContainer .formItem:nth-child(3) .radioInputs {
+     margin-top: 15px;
+     display: flex;
+     gap: 10px;
+ }
+
+ .formContainer .formItem:nth-child(3) .radioInputs .radioOption {
+     cursor: pointer;
+     width: 100%;
+     padding: 10px 10px;
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     outline: 1px solid var(--medium-grey);
+     border-radius: 5px
+ }
+
+ .formContainer .formItem:nth-child(3) .radioInputs .radioOption.active {
+     background-color: var(--medium-green);
+     outline: 2px solid var(--green);
+ }
+
+
+ .formContainer .formItem:nth-child(3) input[type="radio"] {
+     appearance: none;
+     width: 10px;
+     height: 10px;
+     outline: 0.5px solid var(--medium-grey);
+     outline-offset: 3px;
+     border-radius: 50%;
+ }
+
+
+ .formContainer .formItem:nth-child(3) input[type="radio"]:checked {
+     background-color: var(--green);
+     outline: 2px solid var(--green);
+ }
+
+ .formContainer .formItem:nth-child(3) .radioInputs .radioOption label {
+     cursor: pointer;
+     width: 100%;
+ }
+
+ .formContainer .formItem:nth-child(5) {
+     margin-bottom: 25px;
+ }
+
+
+ .formContainer .formItem:nth-child(5) div {
+     display: flex;
+     gap: 10px;
+ }
+
+ .formContainer .formItem:nth-child(5) input[type="checkbox"] {
+     cursor: pointer;
+     accent-color: var(--green)
+ }
+
+ .formContainer .formItem:nth-child(5) label {
+     cursor: pointer;
+ }
+
+ .formContainer .btnSubmit {
+     cursor: pointer;
+     background-color: var(--green);
+     color: var(--white);
+     width: 100%;
+     padding: 17px;
+     border: 0;
+     outline: 0;
+     border-radius: 10px;
+ }
+
+ .formContainer .btnSubmit:hover {
+     background-color: var(--grey);
+ }
+
+
+ .successMessage {
+     background-color: var(--grey);
+     color: var(--medium-green);
+     width: max-content;
+     padding: 20px;
+     pointer-events: none;
+     opacity: 0;
+     position: fixed;
+     top: 13%;
+     left: 50%;
+     transform: translate(-50%);
+     border-radius: 10px;
+ }
+
+
+ .successMessage.active {
+     display: block;
+     pointer-events: all;
+     animation-name: fadeOut;
+     animation-duration: 5s;
+     animation-fill-mode: forwards;
+ }
+
+
+ @keyframes fadeOut {
+
+     0%,
+     25%,
+     50%,
+     75% {
+         opacity: 1;
+     }
+
+     100% {
+         opacity: 0;
+     }
+ }
+
+ .successMessage .messageHeader {
+     color: var(--white);
+     margin-bottom: 15px;
+     font-weight: bold;
+     display: flex;
+     align-items: center;
+     gap: 15px
+ }
+
+
+ @media (max-width: 375px) {
+     .formContainer .formItem:nth-child(1) {
+         flex-direction: column;
+     }
+
+     .formContainer .formItem:nth-child(3) .radioInputs {
+         flex-direction: column;
+     }
+
+     textarea {
+         height: 200px;
+     }
+
+     .successMessage {
+         width: 70%;
+         top: 5%;
+     }
+ }
